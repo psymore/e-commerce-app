@@ -11,19 +11,19 @@ const getInitialTheme = () => {
 };
 
 const useThemeStore = create(set => ({
-  theme: getInitialTheme(),
+  themeMode: getInitialTheme(),
   setDarkTheme: () => {
     localStorage.setItem(THEME_KEY, "dark");
-    set({ theme: darkTheme });
+    set({ themeMode: darkTheme });
   },
   setLightTheme: () => {
     localStorage.setItem(THEME_KEY, "light");
-    set({ theme: lightTheme });
+    set({ themeMode: lightTheme });
   },
   toggleTheme: currentTheme => {
     const newTheme = currentTheme === darkTheme ? lightTheme : darkTheme;
     localStorage.setItem(THEME_KEY, newTheme === darkTheme ? "dark" : "light");
-    set({ theme: newTheme });
+    set({ themeMode: newTheme });
   },
 }));
 

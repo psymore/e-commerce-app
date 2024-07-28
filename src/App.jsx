@@ -1,24 +1,30 @@
-import { CssBaseline, ThemeProvider, Typography } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import CustomAppBar from "./assets/components/CustomAppBar";
-import Home from "./assets/pages/Home";
+import TopMenu from "./assets/components/TabMenu";
+import AllProducts from "./assets/pages/AllProducts";
 import useThemeStore from "./store/themeStore";
 
 function App() {
-  const { theme, setDarkTheme } = useThemeStore();
+  const { themeMode } = useThemeStore();
 
   return (
-    <ThemeProvider theme={theme}>
+    // <RouterProvider>
+    <ThemeProvider theme={themeMode}>
       <CssBaseline />
 
-      <Grid container>
-        <Typography fontSize={40}>BABAAAA SELAMIN ALEYKÜM</Typography>
-        <Grid item xs={12} fullWidth>
+      <Grid container sx={{ height: "100%" }}>
+        <Grid item xs={12}>
           <CustomAppBar />
         </Grid>
-        <Home />
+
+        <Grid item xs={12}>
+          <TopMenu />
+        </Grid>
+        <AllProducts />
       </Grid>
     </ThemeProvider>
+    // </RouterProvider>
   );
 }
 
