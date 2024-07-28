@@ -4,9 +4,11 @@ import { cubicBezier, motion } from "framer-motion";
 import { useEffect } from "react";
 import useProductStore from "../../store/productStore";
 import { Box, Rating, Typography } from "@mui/material";
+import useThemeStore from "../../store/themeStore";
 
-function Home() {
+function AllProducts() {
   const { products, fetchProducts } = useProductStore();
+  const { darkTheme } = useThemeStore();
 
   useEffect(() => {
     fetchProducts();
@@ -37,7 +39,7 @@ function Home() {
   };
 
   return (
-    <Grid container spacing={4} mt={6} mb={6} padding={4}>
+    <Grid container spacing={4} mt={0.5} mb={6} padding={4}>
       {products?.map((product, index) => (
         <Grid
           item
@@ -61,6 +63,7 @@ function Home() {
             <motion.div variants={hoverVariants} whileHover="hover">
               <Paper
                 sx={{
+                  // maxHeight: "400px",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -73,7 +76,9 @@ function Home() {
                   borderRadius: "16px",
                   cursor: "pointer",
                   ":hover": {
-                    boxShadow: "0 0 12px white",
+                    boxShadow: darkTheme
+                      ? "0 0 12px white"
+                      : "0 0 12px #71baf2",
                   },
                 }}>
                 <Grid item xs={12} key={product.id}>
@@ -84,7 +89,7 @@ function Home() {
                       alt={product.title}
                       style={{
                         maxWidth: "20vw",
-                        maxHeight: "40vh",
+                        maxHeight: "35vh",
                         objectFit: "cover",
                         borderRadius: "16px",
                       }}
@@ -134,4 +139,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default AllProducts;

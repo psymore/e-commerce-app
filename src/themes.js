@@ -23,6 +23,9 @@ const darkTheme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: "#fff",
+          ":hover": {
+            backgroundColor: "#bbbbbb",
+          },
         },
       },
     },
@@ -30,6 +33,24 @@ const darkTheme = createTheme({
       styleOverrides: {
         root: {
           background: "linear-gradient(to right, #152a3d 0%, #71baf2 100%)",
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#152a3d",
+          color: "#fff",
+          "&.Mui-selected": {
+            color: "#ffa500", // Change this to your desired active tab font color
+          },
+        },
+      },
+    },
+    MuiTabs: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#152a3d",
         },
       },
     },
@@ -73,7 +94,7 @@ const lightTheme = createTheme({
         root: {
           ":hover": {
             color: "#fff",
-            backgroundColor: "#1976d2",
+            backgroundColor: "#1b079c",
           },
           backgroundColor: "#152a3d",
           color: "#fff",
@@ -81,6 +102,13 @@ const lightTheme = createTheme({
       },
     },
     MuiPaper: {
+      styleOverrides: {
+        root: {
+          backgroundColor: "#fff",
+        },
+      },
+    },
+    MuiTabs: {
       styleOverrides: {
         root: {
           backgroundColor: "#fff",
