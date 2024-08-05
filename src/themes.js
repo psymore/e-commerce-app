@@ -32,7 +32,7 @@ const darkTheme = createTheme({
     MuiPaper: {
       styleOverrides: {
         root: {
-          background: "linear-gradient(to right, #152a3d 0%, #71baf2 100%)",
+          backgroundColor: "#152a3d",
         },
       },
     },
@@ -42,7 +42,8 @@ const darkTheme = createTheme({
           backgroundColor: "#152a3d",
           color: "#fff",
           "&.Mui-selected": {
-            color: "#ffa500", // Change this to your desired active tab font color
+            color: "#ffa500",
+            backgroundColor: "#2a3d4e",
           },
         },
       },
@@ -58,64 +59,72 @@ const darkTheme = createTheme({
 });
 
 const lightTheme = createTheme({
-  palette: {
-    mode: "light",
-    background: {
-      default: "#ffffff",
-    },
-    primary: {
-      main: "#1976d2",
-    },
-  },
-  components: {
-    MuiTypography: {
-      styleOverrides: {
-        root: {
-          color: "#fff",
-        },
-      },
-    },
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-          backgroundColor: "#1976d2",
-        },
-      },
-    },
-    MuiTypography: {
-      styleOverrides: {
-        root: {
-          color: "#000",
-        },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          ":hover": {
-            color: "#fff",
-            backgroundColor: "#1b079c",
-          },
-          backgroundColor: "#152a3d",
-          color: "#fff",
-        },
-      },
-    },
-    MuiPaper: {
-      styleOverrides: {
-        root: {
-          backgroundColor: "#fff",
-        },
-      },
-    },
-    MuiTabs: {
-      styleOverrides: {
-        root: {
-          backgroundColor: "#fff",
-        },
-      },
-    },
-  },
+  // palette: {
+  //   mode: "light",
+  //   background: {
+  //     default: "#ffffff",
+  //   },
+  //   primary: {
+  //     main: "#1976d2",
+  //   },
+  // },
+  // components: {
+  //   MuiTypography: {
+  //     styleOverrides: {
+  //       root: {
+  //         color: "#000",
+  //       },
+  //     },
+  //   },
+  //   MuiAppBar: {
+  //     styleOverrides: {
+  //       root: {
+  //         backgroundColor: "#fff",
+  //       },
+  //     },
+  //   },
+  //   MuiButton: {
+  //     styleOverrides: {
+  //       root: {
+  //         ":hover": {
+  //           color: "#fff",
+  //           backgroundColor: "#1b079c",
+  //         },
+  //         backgroundColor: "#152a3d",
+  //         color: "#fff",
+  //       },
+  //     },
+  //   },
+  //   MuiPaper: {
+  //     styleOverrides: {
+  //       root: {
+  //         backgroundColor: "#fff",
+  //       },
+  //     },
+  //   },
+  //   // MuiTab: {
+  //   //   styleOverrides: {
+  //   //     root: {
+  //   //       backgroundColor: "#deebfe",
+  //   //       "&.Mui-selected": {
+  //   //         // border: "1px solid #2a3d4e",
+  //   //       },
+  //   //       "&:focus": {},
+  //   //       disableRipple: true,
+  //   //       "&.Mui-focusVisible": {
+  //   //         // border: "1px solid #2a3d4e",
+  //   //       },
+  //   //     },
+  //   //   },
+  //   // },
+  //   // MuiTabs: {
+  //   //   styleOverrides: {
+  //   //     root: {
+  //   //       backgroundColor: "#deebfe",
+  //   //     },
+  //   //   },
+  //   // },
+  // },
 });
 
 export { darkTheme, lightTheme };

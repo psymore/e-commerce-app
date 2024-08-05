@@ -1,27 +1,21 @@
+// components/ProductList.js
+import { Box, Rating, Typography } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import { cubicBezier, motion } from "framer-motion";
 import { useEffect } from "react";
-import useProductStore from "../../store/productStore";
-import { Box, Rating, Typography } from "@mui/material";
-import useThemeStore from "../../store/themeStore";
+import useThemeStore from "../store/themeStore";
 
-function AllProducts() {
-  const { products, fetchProducts } = useProductStore();
+function ProductList({ products }) {
   const { darkTheme } = useThemeStore();
-
-  useEffect(() => {
-    fetchProducts();
-  }, []);
 
   const easing = cubicBezier(0.35, 0.17, 0.3, 0.86);
   const hoverVariants = {
     hover: {
       scale: 1.05,
-
       transition: {
         duration: 0.5,
-        type: "sping",
+        type: "spring",
         ease: easing,
       },
     },
@@ -63,7 +57,6 @@ function AllProducts() {
             <motion.div variants={hoverVariants} whileHover="hover">
               <Paper
                 sx={{
-                  // maxHeight: "400px",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
@@ -71,8 +64,6 @@ function AllProducts() {
                   border: "1px solid #71baf2",
                   padding: 5,
                   paddingBottom: 5,
-                  // background:
-                  //   "linear-gradient(to right, #152a3d 0%, #71baf2 100%)",
                   borderRadius: "16px",
                   cursor: "pointer",
                   ":hover": {
@@ -82,7 +73,7 @@ function AllProducts() {
                   },
                 }}>
                 <Grid item xs={12} key={product.id}>
-                  <a href="http://localhost:5173/">
+                  <a href={product.url || "#"}>
                     <img
                       src={product.image}
                       className="logo"
@@ -139,4 +130,4 @@ function AllProducts() {
   );
 }
 
-export default AllProducts;
+export default ProductList;
