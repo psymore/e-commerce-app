@@ -1,15 +1,15 @@
-// components/ThemeToggle.js
 import { FormControlLabel, Switch } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import { darkTheme } from "../../themes";
-import useThemeStore from "../../store/themeStore";
+import React from "react";
+import useThemeStore from "../store/themeStore";
+import { darkTheme } from "../themes";
 
 const ThemeToggle = () => {
+  const { themeMode, toggleTheme } = useThemeStore();
+
   const handleToggle = () => {
     toggleTheme(themeMode);
   };
-
-  const { themeMode, toggleTheme } = useThemeStore();
 
   const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     width: 62,
@@ -19,6 +19,8 @@ const ThemeToggle = () => {
       margin: 1,
       padding: 0,
       transform: "translateX(6px)",
+      transition: "transform 0.3s ease",
+
       "&.Mui-checked": {
         color: "#fff",
         transform: "translateX(22px)",
@@ -43,6 +45,8 @@ const ThemeToggle = () => {
       backgroundColor: themeMode === darkTheme ? "#f6f6f6" : "#001e3c",
       width: 32,
       height: 32,
+      transition: "background-color 0.3s ease",
+
       "&::before": {
         content: "''",
         position: "absolute",

@@ -1,15 +1,14 @@
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import Tab from "@mui/material/Tab";
 import Tabs from "@mui/material/Tabs";
-import React, { useEffect, useState } from "react";
-import useProductStore from "../../store/productStore";
+import { useEffect, useState } from "react";
+import useProductStore from "../store/productStore";
+import { Link } from "react-router-dom";
 
 const TopMenu = () => {
   const [value, setValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
 
   const { categories, fetchCategories } = useProductStore();
 
@@ -25,15 +24,11 @@ const TopMenu = () => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
   return (
     <Grid container mt={2} sx={{}}>
-      <AppBar position="static" sx={{ border: "1px solid #71baf2" }}>
-        <Tabs value={value} onChange={handleChange} aria-label="tab menu">
-          <Tab label="All Products" />
+      <Box sx={{ width: "100%" }}>
+        <Tabs value={value} onChange={handleChange}>
+          <Tab label="All Products" component={Link} to={"/"} />
 
           {categories.map((category, i) => (
             <Tab
@@ -41,8 +36,9 @@ const TopMenu = () => {
               sx={{
                 textTransform: "uppercase",
                 ml: i === 0 ? 2 : 0,
-                // border: "1px dashed #71baf2",
               }}
+              component={Link}
+              to={`/${category.toLowerCase()}`}
               label={
                 <Box sx={{ display: "flex", alignItems: "center" }}>
                   {category}
@@ -52,7 +48,7 @@ const TopMenu = () => {
             />
           ))}
         </Tabs>
-      </AppBar>
+      </Box>
     </Grid>
   );
 };
